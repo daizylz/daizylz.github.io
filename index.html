@@ -11,9 +11,17 @@
       margin: 0;
       padding: 0;
       font-family: 'Orbitron', sans-serif;
-      background: black;
-      color: #0ff;
+      background: linear-gradient(120deg, #000000, #05051a, #0a0f30);
+      background-size: 600% 600%;
+      animation: bgAnimation 20s ease infinite;
+      color: #fff;
       overflow: hidden;
+    }
+
+    @keyframes bgAnimation {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     .container {
@@ -21,14 +29,25 @@
       padding-top: 100px;
     }
 
-    h1 {
+    h1, p {
       font-size: 48px;
-      text-shadow: 0 0 10px #0ff;
+      background: linear-gradient(270deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: neonRainbow 6s linear infinite;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
     p {
       font-size: 24px;
       margin-bottom: 30px;
+    }
+
+    @keyframes neonRainbow {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     .links {
@@ -58,28 +77,12 @@
       0% {transform: translateY(-50px) rotate(0deg); opacity: 1;}
       100% {transform: translateY(100vh) rotate(360deg); opacity: 0;}
     }
-
-    .cyber {
-      background: repeating-linear-gradient(
-        45deg,
-        #000,
-        #000 10px,
-        #0ff 10px,
-        #0ff 20px
-      );
-      animation: pulse 2s infinite alternate;
-    }
-
-    @keyframes pulse {
-      from {filter: brightness(1);}
-      to {filter: brightness(1.3);}
-    }
   </style>
 </head>
-<body class="cyber">
+<body>
   <div class="container">
     <h1>Xin chào, tôi là Daizylz</h1>
-    <p>Chào mừng bạn đến với liên hệ của tôi!</p>
+    <p>Chào mừng bạn đến với không gian ảo của tôi!</p>
     <div class="links">
       <a href="https://facebook.com/daizylz.python" target="_blank"><i class="fab fa-facebook-f"></i></a>
       <a href="https://t.me/daizylz/" target="_blank"><i class="fab fa-telegram-plane"></i></a>
@@ -88,10 +91,12 @@
     </div>
   </div>
 
+  <!-- Nhạc nền SoundCloud (tự động phát + lặp lại) -->
   <iframe width="0" height="0" scrolling="no" frameborder="no" allow="autoplay"
     src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/producertvt/anh-ch-ng-th-tvt-remix&color=%2300ffff&auto_play=true&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&loop=true">
   </iframe>
- 
+
+  <!-- Hoa hồng rơi -->
   <script>
     function createRose() {
       const rose = document.createElement('img');
