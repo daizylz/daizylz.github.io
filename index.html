@@ -64,11 +64,16 @@
       margin: 0 15px;
       transition: 0.3s;
       position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid #0ff;
+      border-radius: 15px;
     }
 
     .links a:hover {
       color: #f0f;
       transform: scale(1.2);
+      background-color: rgba(0, 255, 255, 0.2);
     }
 
     .links a .account-name {
@@ -80,6 +85,9 @@
       font-size: 18px;
       color: #fff;
       transition: opacity 0.3s ease-in-out;
+      background-color: rgba(0, 255, 255, 0.3);
+      padding: 5px 10px;
+      border-radius: 5px;
     }
 
     .links a:hover .account-name {
@@ -138,16 +146,28 @@
     <p>Chào mừng bạn đến với không gian ảo của tôi!</p>
     <div class="links">
       <div class="link-container">
-        <a href="https://facebook.com/daizylz.python" target="_blank"><i class="fab fa-facebook-f"></i><span class="account-name">Tiến Dũng</span></a>
+        <a href="https://facebook.com/daizylz.python" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+          <span class="account-name">Tiến Dũng</span>
+        </a>
       </div>
       <div class="link-container">
-        <a href="https://t.me/daizylz/" target="_blank"><i class="fab fa-telegram-plane"></i><span class="account-name">King of Code</span></a>
+        <a href="https://t.me/daizylz/" target="_blank">
+          <i class="fab fa-telegram-plane"></i>
+          <span class="account-name">King of Code</span>
+        </a>
       </div>
       <div class="link-container">
-        <a href="https://zalo.me/0394778781" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" style="width:28px; vertical-align:middle;"><span class="account-name">Tiến Dũng</span></a>
+        <a href="https://zalo.me/0394778781" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" style="width:28px; vertical-align:middle;">
+          <span class="account-name">Tiến Dũng</span>
+        </a>
       </div>
       <div class="link-container">
-        <a href="https://instagram.com/dunglatrecon1x/" target="_blank"><i class="fab fa-instagram"></i><span class="account-name">Trần Tiến Dũng</span></a>
+        <a href="https://instagram.com/dunglatrecon1x/" target="_blank">
+          <i class="fab fa-instagram"></i>
+          <span class="account-name">Trần Tiến Dũng</span>
+        </a>
       </div>
     </div>
   </div>
@@ -161,7 +181,7 @@
   <script>
     function createRose() {
       const rose = document.createElement('img');
-      rose.src = 'https://cdn-icons-png.flaticon.com/512/616/616430.png';
+      rose.src = 'https://cdn-icons-png.flaticon.com/512/616/616430.png'; // Hình hoa hồng
       rose.className = 'rose-img rose-animation';
       rose.style.left = Math.random() * window.innerWidth + 'px';
       document.body.appendChild(rose);
