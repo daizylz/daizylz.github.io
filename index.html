@@ -58,25 +58,31 @@
       align-items: center;
     }
 
-    .links a {
-      color: #0ff;
-      font-size: 28px;
-      margin: 0 15px;
+    .link-container {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
       transition: 0.3s;
       position: relative;
       display: inline-block;
-      padding: 10px 20px;
-      border: 2px solid #0ff;
-      border-radius: 15px;
     }
 
-    .links a:hover {
-      color: #f0f;
-      transform: scale(1.2);
+    .link-container:hover {
       background-color: rgba(0, 255, 255, 0.2);
     }
 
-    .links a .account-name {
+    .link-container img, .link-container i {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .link-container:hover img, .link-container:hover i {
+      transform: scale(1.2);
+    }
+
+    .link-container .account-name {
       display: none;
       position: absolute;
       bottom: -30px;
@@ -84,70 +90,47 @@
       transform: translateX(-50%);
       font-size: 18px;
       color: #fff;
-      transition: opacity 0.3s ease-in-out;
       background-color: rgba(0, 255, 255, 0.3);
       padding: 5px 10px;
       border-radius: 5px;
+      transition: opacity 0.3s ease-in-out;
     }
 
-    .links a:hover .account-name {
+    .link-container:hover .account-name {
       display: block;
       opacity: 1;
     }
 
-    .rose {
+    /* Hiệu ứng nền động */
+    .background-animation {
       position: absolute;
-      width: 30px;
-      animation: fall linear infinite;
-      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://media.giphy.com/media/26uf7qZfXry0QO9W4/giphy.gif') no-repeat center center fixed;
+      background-size: cover;
+      filter: blur(10px);
+      z-index: -1;
+      animation: bgMove 60s infinite linear;
     }
 
-    @keyframes fall {
-      0% {transform: translateY(-50px) rotate(0deg); opacity: 1;}
-      100% {transform: translateY(100vh) rotate(360deg); opacity: 0;}
+    @keyframes bgMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 100% 100%; }
     }
 
-    .rose-img {
-      width: 30px;
-      opacity: 0.7;
-      animation: fall linear infinite;
-    }
-
-    .rose-img:hover {
-      opacity: 1;
-    }
-
-    .rose-animation {
-      animation: fall 5s infinite ease-in;
-    }
-
-    .link-container {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px;
-      border-radius: 10px;
-      border: 2px solid #0ff;
-      transition: 0.3s;
-    }
-
-    .link-container:hover {
-      background-color: rgba(0, 255, 255, 0.2);
-    }
-
-    .link-container img {
-      width: 28px;
-      margin-right: 10px;
-    }
   </style>
 </head>
 <body onclick="playMusic()">
+  <div class="background-animation"></div>
   <div class="container">
     <h1>Xin chào, tôi là Daizylz</h1>
     <p>Chào mừng bạn đến với không gian ảo của tôi!</p>
     <div class="links">
       <div class="link-container">
         <a href="https://facebook.com/daizylz.python" target="_blank">
-          <i class="fab fa-facebook-f"></i>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon">
           <span class="account-name">Tiến Dũng</span>
         </a>
       </div>
@@ -159,7 +142,7 @@
       </div>
       <div class="link-container">
         <a href="https://zalo.me/0394778781" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" style="width:28px; vertical-align:middle;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo Icon">
           <span class="account-name">Tiến Dũng</span>
         </a>
       </div>
@@ -176,20 +159,6 @@
   <iframe width="0" height="0" scrolling="no" frameborder="no" allow="autoplay"
     src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/producertvt/anh-ch-ng-th-tvt-remix&color=%2300ffff&auto_play=true&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&loop=true">
   </iframe>
-
-  <!-- Hoa hồng rơi -->
-  <script>
-    function createRose() {
-      const rose = document.createElement('img');
-      rose.src = 'https://cdn-icons-png.flaticon.com/512/616/616430.png'; // Hình hoa hồng
-      rose.className = 'rose-img rose-animation';
-      rose.style.left = Math.random() * window.innerWidth + 'px';
-      document.body.appendChild(rose);
-      setTimeout(() => rose.remove(), 6000);
-    }
-
-    setInterval(createRose, 300);
-  </script>
 
   <!-- Nhạc bật khi click -->
   <script>
