@@ -11,18 +11,30 @@
       margin: 0;
       padding: 0;
       font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(120deg, #1a1a1a, #2a2a2a, #111111);
-      background-size: 600% 600%;
-      animation: bgAnimation 20s ease infinite;
-      color: #fff;
+      background: #000;
+      color: #00ff00;
       overflow: hidden;
       cursor: pointer;
+      position: relative;
     }
 
-    @keyframes bgAnimation {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    /* Nền hacker với hiệu ứng chuyển động */
+    .background-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://media.giphy.com/media/fdHp64fM6NKzC/giphy.gif') repeat center center;
+      background-size: cover;
+      filter: blur(2px);
+      z-index: -1;
+      animation: bgMove 10s linear infinite;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0 0; }
+      100% { background-position: -500px -500px; }
     }
 
     .container {
@@ -62,9 +74,11 @@
       margin: 10px;
       padding: 10px;
       border-radius: 10px;
-      transition: 0.3s;
       position: relative;
       display: inline-block;
+      transition: 0.3s;
+      width: 80px;
+      height: 80px;
     }
 
     .link-container:hover {
@@ -72,9 +86,10 @@
     }
 
     .link-container img, .link-container i {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
       transition: 0.3s;
     }
 
@@ -101,28 +116,30 @@
       opacity: 1;
     }
 
-    /* Hiệu ứng nền động */
-    .background-animation {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://media.giphy.com/media/26uf7qZfXry0QO9W4/giphy.gif') no-repeat center center fixed;
-      background-size: cover;
-      filter: blur(10px);
-      z-index: -1;
-      animation: bgMove 60s infinite linear;
+    /* Nút bật nhạc */
+    .play-button {
+      padding: 10px 20px;
+      background-color: #00ff00;
+      color: #000;
+      font-size: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 30px;
     }
 
-    @keyframes bgMove {
-      0% { background-position: 0 0; }
-      100% { background-position: 100% 100%; }
+    .play-button:hover {
+      background-color: #00cc00;
     }
 
+    /* Nhạc nền SoundCloud */
+    iframe {
+      display: none;
+    }
   </style>
 </head>
-<body onclick="playMusic()">
+<body>
   <div class="background-animation"></div>
   <div class="container">
     <h1>Xin chào, tôi là Daizylz</h1>
@@ -153,6 +170,9 @@
         </a>
       </div>
     </div>
+
+    <!-- Nút bật nhạc -->
+    <button class="play-button" onclick="playMusic()">Play Music</button>
   </div>
 
   <!-- Nhạc nền SoundCloud (tự động phát + lặp lại) -->
